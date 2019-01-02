@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>argparse 1.0.10 API documentation</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="ndoc" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="bundle.js"></script>
+</head>
+
+<body>
+  <div class="gh-ribbon"><a href="https://github.com/nodeca/argparse">Fork me on GitHub</a></div>
+  <nav class="sidebar">
+    <form id="search"><input type="search" size="20" title="Search" placeholder="Search"></form>
+    <ul class="menu" id="search-results"></ul>
+    <ul class="menu">
+      <li class="menu-item"><a href="#Action" class="class" title="Action (class)" data-id="action">Action</a>
+        <ul>
+          <li class="menu-item"><a href="#Action.new" class="constructor" title="new Action (constructor)" data-id="new action">new</a></li>
+          <li class="menu-item"><a href="#Action.prototype.call" class="instance-method" title="Action#call (instance method)" data-id="action#call">call</a></li>
+          <li class="menu-item"><a href="#Action.prototype.getName" class="instance-property" title="Action#getName (instance property)" data-id="action#getname">getName</a></li>
+          <li class="menu-item"><a href="#Action.prototype.isOptional" class="instance-property" title="Action#isOptional (instance property)" data-id="action#isoptional">isOptional</a></li>
+          <li class="menu-item"><a href="#Action.prototype.isPositional" class="instance-property" title="Action#isPositional (instance property)" data-id="action#ispositional">isPositional</a></li>
+        </ul>
+      </li>
+      <li class="menu-item"><a href="#ArgumentParser" class="class" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a>
+        <ul>
+          <li class="menu-item"><a href="#ArgumentParser.new" class="constructor" title="new ArgumentParser (constructor)" data-id="new argumentparser">new</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.addSubparsers" class="instance-method" title="ArgumentParser#addSubparsers (instance method)" data-id="argumentparser#addsubparsers">addSubparsers</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.error" class="instance-method" title="ArgumentParser#error (instance method)" data-id="argumentparser#error">error</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.exit" class="instance-method" title="ArgumentParser#exit (instance method)" data-id="argumentparser#exit">exit</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.parseArgs" class="instance-method" title="ArgumentParser#parseArgs (instance method)" data-id="argumentparser#parseargs">parseArgs</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.parseKnownArgs" class="instance-method" title="ArgumentParser#parseKnownArgs (instance method)" data-id="argumentparser#parseknownargs">parseKnownArgs</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.printHelp" class="instance-method" title="ArgumentParser#printHelp (instance method)" data-id="argumentparser#printhelp">printHelp</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.printUsage" class="instance-method" title="ArgumentParser#printUsage (instance method)" data-id="argumentparser#printusage">printUsage</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.formatHelp" class="instance-property" title="ArgumentParser#formatHelp (instance property)" data-id="argumentparser#formathelp">formatHelp</a></li>
+          <li class="menu-item"><a href="#ArgumentParser.prototype.formatUsage" class="instance-property" title="ArgumentParser#formatUsage (instance property)" data-id="argumentparser#formatusage">formatUsage</a></li>
+        </ul>
+      </li>
+      <li class="menu-item"><a href="#HelpFormatter" class="class" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a>
+        <ul>
+          <li class="menu-item"><a href="#HelpFormatter.new" class="constructor" title="new HelpFormatter (constructor)" data-id="new helpformatter">new</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.addArgument" class="instance-method" title="HelpFormatter#addArgument (instance method)" data-id="helpformatter#addargument">addArgument</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.addArguments" class="instance-method" title="HelpFormatter#addArguments (instance method)" data-id="helpformatter#addarguments">addArguments</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.addText" class="instance-method" title="HelpFormatter#addText (instance method)" data-id="helpformatter#addtext">addText</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.addUsage" class="instance-method" title="HelpFormatter#addUsage (instance method)" data-id="helpformatter#addusage">addUsage</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.startSection" class="instance-method" title="HelpFormatter#startSection (instance method)" data-id="helpformatter#startsection">startSection</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.endSection" class="instance-property" title="HelpFormatter#endSection (instance property)" data-id="helpformatter#endsection">endSection</a></li>
+          <li class="menu-item"><a href="#HelpFormatter.prototype.formatHelp" class="instance-property" title="HelpFormatter#formatHelp (instance property)" data-id="helpformatter#formathelp">formatHelp</a></li>
+        </ul>
+      </li>
+      <li class="menu-item"><a href="#Namespace" class="class" title="Namespace (class)" data-id="namespace">Namespace</a>
+        <ul>
+          <li class="menu-item"><a href="#Namespace.new" class="constructor" title="new Namespace (constructor)" data-id="new namespace">new</a></li>
+          <li class="menu-item"><a href="#Namespace.prototype.get" class="instance-method" title="Namespace#get (instance method)" data-id="namespace#get">get</a></li>
+          <li class="menu-item"><a href="#Namespace.prototype.isset" class="instance-method" title="Namespace#isset (instance method)" data-id="namespace#isset">isset</a></li>
+          <li class="menu-item"><a href="#Namespace.prototype.set" class="instance-method" title="Namespace#set (instance method)" data-id="namespace#set">set</a></li>
+          <li class="menu-item"><a href="#Namespace.prototype.unset" class="instance-method" title="Namespace#unset (instance method)" data-id="namespace#unset">unset</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="main" id="home" data-title="Home">
+    <article class="docblock">
+      <div class="readme">
+        <h1>argparse</h1>
+        <p><a href="http://travis-ci.org/nodeca/argparse"><img src="https://secure.travis-ci.org/nodeca/argparse.svg?branch=master" alt="Build Status"></a>
+          <a href="https://www.npmjs.org/package/argparse"><img src="https://img.shields.io/npm/v/argparse.svg" alt="NPM version"></a></p>
+        <p>CLI arguments parser for node.js. Javascript port of python's <a href="http://docs.python.org/dev/library/argparse.html">argparse</a> module (original version 3.2). That's a full port, except some very rare options, recorded in issue tracker.</p>
+        <p><strong>NB. Difference with original.</strong></p>
+        <ul>
+          <li>Method names changed to camelCase. See <a href="http://nodeca.github.com/argparse/">generated docs</a>.</li>
+          <li>Use <code>defaultValue</code> instead of <code>default</code>.</li>
+          <li>Use <code>argparse.Const.REMAINDER</code> instead of <code>argparse.REMAINDER</code>, and similarly for constant values <code>OPTIONAL</code>, <code>ZERO_OR_MORE</code>, and <code>ONE_OR_MORE</code> (aliases for <code>nargs</code> values <code>'?'</code>, <code>'*'</code>, <code>'+'</code>, respectively), and <code>SUPPRESS</code>.</li>
+        </ul>
+        <h1>Example</h1>
+        <p>test.js file:</p>
+        <pre class="hljs language-javascript"><code><span class="hljs-meta">#!/usr/bin/env node</span>
+<span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> ArgumentParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/argparse'</span>).ArgumentParser;
+<span class="hljs-keyword">var</span> parser = <span class="hljs-keyword">new</span> ArgumentParser({
+  <span class="hljs-attr">version</span>: <span class="hljs-string">'0.0.1'</span>,
+  <span class="hljs-attr">addHelp</span>:<span class="hljs-literal">true</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'Argparse example'</span>
+});
+parser.addArgument(
+  [ <span class="hljs-string">'-f'</span>, <span class="hljs-string">'--foo'</span> ],
+  {
+    <span class="hljs-attr">help</span>: <span class="hljs-string">'foo bar'</span>
+  }
+);
+parser.addArgument(
+  [ <span class="hljs-string">'-b'</span>, <span class="hljs-string">'--bar'</span> ],
+  {
+    <span class="hljs-attr">help</span>: <span class="hljs-string">'bar foo'</span>
+  }
+);
+parser.addArgument(
+  <span class="hljs-string">'--baz'</span>,
+  {
+    <span class="hljs-attr">help</span>: <span class="hljs-string">'baz bar'</span>
+  }
+);
+<span class="hljs-keyword">var</span> args = parser.parseArgs();
+<span class="hljs-built_in">console</span>.dir(args);
+</code></pre>
+        <p>Display help:</p>
+        <pre class="hljs language-gauss"><code>$ ./test.js -h
+usage: example.js [-h] [-v] [-f FOO] [-b <span class="hljs-built_in">BAR</span>] [--baz BAZ]
+
+Argparse example
+
+Optional arguments:
+  -h, --help         <span class="hljs-keyword">Show</span> this help message <span class="hljs-keyword">and</span> exit.
+  -v, --version      <span class="hljs-keyword">Show</span> program's version number <span class="hljs-keyword">and</span> exit.
+  -f FOO, --foo FOO  foo <span class="hljs-built_in">bar</span>
+  -b <span class="hljs-built_in">BAR</span>, --<span class="hljs-built_in">bar</span> <span class="hljs-built_in">BAR</span>  <span class="hljs-built_in">bar</span> foo
+  --baz BAZ          baz <span class="hljs-built_in">bar</span>
+</code></pre>
+        <p>Parse arguments:</p>
+        <pre class="hljs language-groovy"><code>$ ./test.js -f=<span class="hljs-number">3</span> --bar=<span class="hljs-number">4</span> --baz <span class="hljs-number">5</span>
+{ <span class="hljs-string">foo:</span> <span class="hljs-string">'3'</span>, <span class="hljs-string">bar:</span> <span class="hljs-string">'4'</span>, <span class="hljs-string">baz:</span> <span class="hljs-string">'5'</span> }
+</code></pre>
+        <p>More <a href="https://github.com/nodeca/argparse/tree/master/examples">examples</a>.</p>
+        <h1>ArgumentParser objects</h1>
+        <pre class="hljs language-reasonml"><code><span class="hljs-keyword">new</span> <span class="hljs-constructor">ArgumentParser({<span class="hljs-params">parameters</span> <span class="hljs-params">hash</span>})</span>;
+</code></pre>
+        <p>Creates a new ArgumentParser object.</p>
+        <p><strong>Supported params:</strong></p>
+        <ul>
+          <li><code>description</code> - Text to display before the argument help.</li>
+          <li><code>epilog</code> - Text to display after the argument help.</li>
+          <li><code>addHelp</code> - Add a -h/–help option to the parser. (default: true)</li>
+          <li><code>argumentDefault</code> - Set the global default value for arguments. (default: null)</li>
+          <li><code>parents</code> - A list of ArgumentParser objects whose arguments should also be included.</li>
+          <li><code>prefixChars</code> - The set of characters that prefix optional arguments. (default: ‘-‘)</li>
+          <li><code>formatterClass</code> - A class for customizing the help output.</li>
+          <li><code>prog</code> - The name of the program (default: <code>path.basename(process.argv[1])</code>)</li>
+          <li><code>usage</code> - The string describing the program usage (default: generated)</li>
+          <li><code>conflictHandler</code> - Usually unnecessary, defines strategy for resolving conflicting optionals.</li>
+        </ul>
+        <p><strong>Not supported yet</strong></p>
+        <ul>
+          <li><code>fromfilePrefixChars</code> - The set of characters that prefix files from which additional arguments should be read.</li>
+        </ul>
+        <p>Details in <a href="http://docs.python.org/dev/library/argparse.html#argumentparser-objects">original ArgumentParser guide</a></p>
+        <h1>addArgument() method</h1>
+        <pre class="hljs language-reasonml"><code><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">ArgumentParser</span>.</span></span>add<span class="hljs-constructor">Argument(<span class="hljs-params">name</span> <span class="hljs-params">or</span> <span class="hljs-params">flag</span> <span class="hljs-params">or</span> [<span class="hljs-params">name</span>] <span class="hljs-params">or</span> [<span class="hljs-params">flags</span><span class="hljs-operator">...</span>], {<span class="hljs-params">options</span>})</span>
+</code></pre>
+        <p>Defines how a single command-line argument should be parsed.</p>
+        <ul>
+          <li><code>name or flag or [name] or [flags...]</code> - Either a positional name (e.g., <code>'foo'</code>), a single option (e.g., <code>'-f'</code> or <code>'--foo'</code>), an array of a single positional name (e.g., <code>['foo']</code>), or an array of options (e.g., <code>['-f', '--foo']</code>).</li>
+        </ul>
+        <p>Options:</p>
+        <ul>
+          <li><code>action</code> - The basic type of action to be taken when this argument is encountered at the command line.</li>
+          <li><code>nargs</code>- The number of command-line arguments that should be consumed.</li>
+          <li><code>constant</code> - A constant value required by some action and nargs selections.</li>
+          <li><code>defaultValue</code> - The value produced if the argument is absent from the command line.</li>
+          <li><code>type</code> - The type to which the command-line argument should be converted.</li>
+          <li><code>choices</code> - A container of the allowable values for the argument.</li>
+          <li><code>required</code> - Whether or not the command-line option may be omitted (optionals only).</li>
+          <li><code>help</code> - A brief description of what the argument does.</li>
+          <li><code>metavar</code> - A name for the argument in usage messages.</li>
+          <li><code>dest</code> - The name of the attribute to be added to the object returned by parseArgs().</li>
+        </ul>
+        <p>Details in <a href="http://docs.python.org/dev/library/argparse.html#the-add-argument-method">original add_argument guide</a></p>
+        <h1>Action (some details)</h1>
+        <p>ArgumentParser objects associate command-line arguments with actions. These actions can do just about anything with the command-line arguments associated with them, though most actions simply add an attribute to the object returned by parseArgs(). The action keyword argument specifies how the command-line arguments should be handled. The supported actions are:</p>
+        <ul>
+          <li><code>store</code> - Just stores the argument’s value. This is the default action.</li>
+          <li><code>storeConst</code> - Stores value, specified by the const keyword argument. (Note that the const keyword argument defaults to the rather unhelpful None.) The 'storeConst' action is most commonly used with optional arguments, that specify some sort of flag.</li>
+          <li><code>storeTrue</code> and <code>storeFalse</code> - Stores values True and False respectively. These are special cases of 'storeConst'.</li>
+          <li><code>append</code> - Stores a list, and appends each argument value to the list. This is useful to allow an option to be specified multiple times.</li>
+          <li><code>appendConst</code> - Stores a list, and appends value, specified by the const keyword argument to the list. (Note, that the const keyword argument defaults is None.) The 'appendConst' action is typically used when multiple arguments need to store constants to the same list.</li>
+          <li><code>count</code> - Counts the number of times a keyword argument occurs. For example, used for increasing verbosity levels.</li>
+          <li><code>help</code> - Prints a complete help message for all the options in the current parser and then exits. By default a help action is automatically added to the parser. See ArgumentParser for details of how the output is created.</li>
+          <li><code>version</code> - Prints version information and exit. Expects a <code>version=</code> keyword argument in the addArgument() call.</li>
+        </ul>
+        <p>Details in <a href="http://docs.python.org/dev/library/argparse.html#action">original action guide</a></p>
+        <h1>Sub-commands</h1>
+        <p>ArgumentParser.addSubparsers()</p>
+        <p>Many programs split their functionality into a number of sub-commands, for example, the svn program can invoke sub-commands like <code>svn checkout</code>, <code>svn update</code>, and <code>svn commit</code>. Splitting up functionality this way can be a particularly good idea when a program performs several different functions which require different kinds of command-line arguments. <code>ArgumentParser</code> supports creation of such sub-commands with <code>addSubparsers()</code> method. The <code>addSubparsers()</code> method is normally called with no arguments and returns an special action object. This object has a single method <code>addParser()</code>, which takes a command name and any <code>ArgumentParser</code> constructor arguments, and returns an <code>ArgumentParser</code> object that can be modified as usual.</p>
+        <p>Example:</p>
+        <p>sub_commands.js</p>
+        <pre class="hljs language-javascript"><code><span class="hljs-meta">#!/usr/bin/env node</span>
+<span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> ArgumentParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/argparse'</span>).ArgumentParser;
+<span class="hljs-keyword">var</span> parser = <span class="hljs-keyword">new</span> ArgumentParser({
+  <span class="hljs-attr">version</span>: <span class="hljs-string">'0.0.1'</span>,
+  <span class="hljs-attr">addHelp</span>:<span class="hljs-literal">true</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">'Argparse examples: sub-commands'</span>,
+});
+
+<span class="hljs-keyword">var</span> subparsers = parser.addSubparsers({
+  <span class="hljs-attr">title</span>:<span class="hljs-string">'subcommands'</span>,
+  <span class="hljs-attr">dest</span>:<span class="hljs-string">"subcommand_name"</span>
+});
+
+<span class="hljs-keyword">var</span> bar = subparsers.addParser(<span class="hljs-string">'c1'</span>, {<span class="hljs-attr">addHelp</span>:<span class="hljs-literal">true</span>});
+bar.addArgument(
+  [ <span class="hljs-string">'-f'</span>, <span class="hljs-string">'--foo'</span> ],
+  {
+    <span class="hljs-attr">action</span>: <span class="hljs-string">'store'</span>,
+    <span class="hljs-attr">help</span>: <span class="hljs-string">'foo3 bar3'</span>
+  }
+);
+<span class="hljs-keyword">var</span> bar = subparsers.addParser(
+  <span class="hljs-string">'c2'</span>,
+  {<span class="hljs-attr">aliases</span>:[<span class="hljs-string">'co'</span>], <span class="hljs-attr">addHelp</span>:<span class="hljs-literal">true</span>}
+);
+bar.addArgument(
+  [ <span class="hljs-string">'-b'</span>, <span class="hljs-string">'--bar'</span> ],
+  {
+    <span class="hljs-attr">action</span>: <span class="hljs-string">'store'</span>,
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'int'</span>,
+    <span class="hljs-attr">help</span>: <span class="hljs-string">'foo3 bar3'</span>
+  }
+);
+
+<span class="hljs-keyword">var</span> args = parser.parseArgs();
+<span class="hljs-built_in">console</span>.dir(args);
+
+</code></pre>
+        <p>Details in <a href="http://docs.python.org/dev/library/argparse.html#sub-commands">original sub-commands guide</a></p>
+        <h1>Contributors</h1>
+        <ul>
+          <li><a href="https://github.com/shkuropat">Eugene Shkuropat</a></li>
+          <li><a href="https://github.com/hpaulj">Paul Jacobson</a></li>
+        </ul>
+        <p><a href="https://github.com/nodeca/argparse/graphs/contributors">others</a></p>
+        <h1>License</h1>
+        <p>Copyright (c) 2012 <a href="https://github.com/puzrin">Vitaly Puzrin</a>. Released under the MIT license. See <a href="https://github.com/nodeca/argparse/blob/master/LICENSE">LICENSE</a> for details.</p>
+      </div>
+    </article>
+    <article class="docblock" id="Action" data-title="Action (class)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Action" class="" title="Action (class)" data-id="action">Action</a></li>
+        </ul>
+        <h2 title="class">Action</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/action.js#L30">View source</a></div>
+      </header>
+      <div class="section description">
+        <h3>Description</h3>
+        <div class="content">
+          <p>Base class for all actions Do not call in your code, use this class only for inherits your own action</p>
+          <p>Information about how to convert command line strings to Javascript objects. Action objects are used by an ArgumentParser to represent the information needed to parse a single argument from one or more strings from the command line. The keyword arguments to the Action constructor are also all attributes of Action instances.</p>
+          <h5>Allowed keywords:</h5>
+          <ul>
+            <li><code>store</code></li>
+            <li><code>storeConstant</code></li>
+            <li><code>storeTrue</code></li>
+            <li><code>storeFalse</code></li>
+            <li><code>append</code></li>
+            <li><code>appendConstant</code></li>
+            <li><code>count</code></li>
+            <li><code>help</code></li>
+            <li><code>version</code></li>
+          </ul>
+          <p>Information about action options see <a href="#Action.new" class="link-short" title="new Action (constructor)" data-id="new action">new Action</a></p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#action">original guide</a></p>
+        </div>
+      </div>
+      <div class="section constructor">
+        <h3>Constructor</h3>
+        <div class="content"></div>
+        <ul class="method-list">
+          <li><a href="#Action.new" class="" title="new Action (constructor)" data-id="new action">new Action</a></li>
+        </ul>
+      </div>
+      <div class="section instance_methods">
+        <h3>Instance methods</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#Action.prototype.call" class="" title="Action#call (instance method)" data-id="action#call">call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section instance_properties">
+        <h3>Instance properties</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#Action.prototype.getName" class="" title="Action#getName (instance property)" data-id="action#getname">getName</a></li>
+            <li><a href="#Action.prototype.isOptional" class="" title="Action#isOptional (instance property)" data-id="action#isoptional">isOptional</a></li>
+            <li><a href="#Action.prototype.isPositional" class="" title="Action#isPositional (instance property)" data-id="action#ispositional">isPositional</a></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Action.new" data-title="new Action (constructor)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Action" class="" title="Action (class)" data-id="action">Action</a></li>
+          <li><a href="#Action.new" class="" title="new Action (constructor)" data-id="new action">new</a></li>
+        </ul>
+        <h2 title="constructor"><span class="name_prefix">Action.</span>new</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/action.js#L73">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">new Action(options)</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Base class for all actions. Used only for inherits</p>
+          <h5>Options:</h5>
+          <ul>
+            <li><code>optionStrings</code> A list of command-line option strings for the action.</li>
+            <li><code>dest</code> Attribute to hold the created object(s)</li>
+            <li><code>nargs</code> The number of command-line arguments that should be consumed. By default, one argument will be consumed and a single value will be produced.</li>
+            <li><code>constant</code> Default value for an action with no value.</li>
+            <li><code>defaultValue</code> The value to be produced if the option is not specified.</li>
+            <li><code>type</code> Cast to 'string'|'int'|'float'|'complex'|function (string). If None, 'string'.</li>
+            <li><code>choices</code> The choices available.</li>
+            <li><code>required</code> True if the action must always be specified at the command line.</li>
+            <li><code>help</code> The help describing the argument.</li>
+            <li><code>metavar</code> The name to be used for the option's argument with the help string. If None, the 'dest' value will be used as the name.</li>
+          </ul>
+          <h5>nargs supported values:</h5>
+          <ul>
+            <li><code>N</code> (an integer) consumes N arguments (and produces a list)</li>
+            <li><code>?</code> consumes zero or one arguments</li>
+            <li><code>*</code> consumes zero or more arguments (and produces a list)</li>
+            <li><code>+</code> consumes one or more arguments (and produces a list)</li>
+          </ul>
+          <p>Note: that the difference between the default and nargs=1 is that with the default, a single value will be produced, while with nargs=1, a list containing a single value will be produced.</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Action.prototype.call" data-title="Action#call (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Action" class="" title="Action (class)" data-id="action">Action</a></li>
+          <li><a href="#Action.prototype.call" class="" title="Action#call (instance method)" data-id="action#call">call</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">Action#</span>call</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/action.js#L144">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Action#call(parser, namespace, values, optionString)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">parser</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">ArgumentParser</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>current parser</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">namespace</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">Namespace</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>namespace for output data</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">values</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">Array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>parsed values</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">optionString</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">Array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>input option string(not parsed)</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Call the action. Should be implemented in inherited classes</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> ActionCount.prototype.call = function (parser, namespace, values, optionString) {
+   namespace.set(this.dest, (namespace[this.dest] || 0) + 1);
+ };
+</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Action.prototype.getName" data-title="Action#getName (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Action" class="" title="Action (class)" data-id="action">Action</a></li>
+          <li><a href="#Action.prototype.getName" class="" title="Action#getName (instance property)" data-id="action#getname">getName</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">Action#</span>getName</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/action.js#L99">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Action#getName</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>String</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Tells action name</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Action.prototype.isOptional" data-title="Action#isOptional (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Action" class="" title="Action (class)" data-id="action">Action</a></li>
+          <li><a href="#Action.prototype.isOptional" class="" title="Action#isOptional (instance property)" data-id="action#isoptional">isOptional</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">Action#</span>isOptional</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/action.js#L115">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Action#isOptional</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Boolean</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Return true if optional</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Action.prototype.isPositional" data-title="Action#isPositional (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Action" class="" title="Action (class)" data-id="action">Action</a></li>
+          <li><a href="#Action.prototype.isPositional" class="" title="Action#isPositional (instance property)" data-id="action#ispositional">isPositional</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">Action#</span>isPositional</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/action.js#L124">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Action#isPositional</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Boolean</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Return true if positional</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser" data-title="ArgumentParser (class)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+        </ul>
+        <h2 title="class">ArgumentParser</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L8">View source</a></div>
+      </header>
+      <div class="section description">
+        <h3>Description</h3>
+        <div class="content">
+          <p>Object for parsing command line strings into js objects.</p>
+          <p>Inherited from <a href="#ActionContainer" class="link-short" title="ActionContainer (class)" data-id="actioncontainer">ActionContainer</a></p>
+        </div>
+      </div>
+      <div class="section constructor">
+        <h3>Constructor</h3>
+        <div class="content"></div>
+        <ul class="method-list">
+          <li><a href="#ArgumentParser.new" class="" title="new ArgumentParser (constructor)" data-id="new argumentparser">new ArgumentParser</a></li>
+        </ul>
+      </div>
+      <div class="section instance_methods">
+        <h3>Instance methods</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#ArgumentParser.prototype.addSubparsers" class="" title="ArgumentParser#addSubparsers (instance method)" data-id="argumentparser#addsubparsers">addSubparsers</a></li>
+            <li><a href="#ArgumentParser.prototype.error" class="" title="ArgumentParser#error (instance method)" data-id="argumentparser#error">error</a></li>
+            <li><a href="#ArgumentParser.prototype.exit" class="" title="ArgumentParser#exit (instance method)" data-id="argumentparser#exit">exit</a></li>
+            <li><a href="#ArgumentParser.prototype.parseArgs" class="" title="ArgumentParser#parseArgs (instance method)" data-id="argumentparser#parseargs">parseArgs</a></li>
+            <li><a href="#ArgumentParser.prototype.parseKnownArgs" class="" title="ArgumentParser#parseKnownArgs (instance method)" data-id="argumentparser#parseknownargs">parseKnownArgs</a></li>
+            <li><a href="#ArgumentParser.prototype.printHelp" class="" title="ArgumentParser#printHelp (instance method)" data-id="argumentparser#printhelp">printHelp</a></li>
+            <li><a href="#ArgumentParser.prototype.printUsage" class="" title="ArgumentParser#printUsage (instance method)" data-id="argumentparser#printusage">printUsage</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section instance_properties">
+        <h3>Instance properties</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#ArgumentParser.prototype.formatHelp" class="" title="ArgumentParser#formatHelp (instance property)" data-id="argumentparser#formathelp">formatHelp</a></li>
+            <li><a href="#ArgumentParser.prototype.formatUsage" class="" title="ArgumentParser#formatUsage (instance property)" data-id="argumentparser#formatusage">formatUsage</a></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.new" data-title="new ArgumentParser (constructor)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.new" class="" title="new ArgumentParser (constructor)" data-id="new argumentparser">new</a></li>
+        </ul>
+        <h2 title="constructor"><span class="name_prefix">ArgumentParser.</span>new</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L55">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">new ArgumentParser(options)</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Create a new ArgumentParser object.</p>
+          <h5>Options:</h5>
+          <ul>
+            <li><code>prog</code> The name of the program (default: Path.basename(process.argv<a href="http://docs.python.org/dev/library/argparse.html#argumentparser-objects">1</a>))</li>
+            <li><code>usage</code> A usage message (default: auto-generated from arguments)</li>
+            <li><code>description</code> A description of what the program does</li>
+            <li><code>epilog</code> Text following the argument descriptions</li>
+            <li><code>parents</code> Parsers whose arguments should be copied into this one</li>
+            <li><code>formatterClass</code> HelpFormatter class for printing help messages</li>
+            <li><code>prefixChars</code> Characters that prefix optional arguments</li>
+            <li><code>fromfilePrefixChars</code> Characters that prefix files containing additional arguments</li>
+            <li><code>argumentDefault</code> The default value for all arguments</li>
+            <li><code>addHelp</code> Add a -h/-help option</li>
+            <li><code>conflictHandler</code> Specifies how to handle conflicting argument names</li>
+            <li><code>debug</code> Enable debug mode. Argument errors throw exception in debug mode and process.exit in normal. Used for development and testing (default: false)</li>
+          </ul>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#argumentparser-objects">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.addSubparsers" data-title="ArgumentParser#addSubparsers (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.addSubparsers" class="" title="ArgumentParser#addSubparsers (instance method)" data-id="argumentparser#addsubparsers">addSubparsers</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>addSubparsers</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L156">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#addSubparsers(options)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>[ <a href="#ActionSubparsers" class="link-short" title="ActionSubparsers (class)" data-id="actionsubparsers">ActionSubparsers</a> ]</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">options</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">object</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>hash of options see <a href="#ActionSubparsers.new" class="link-short" title="new ActionSubparsers (constructor)" data-id="new actionsubparsers">new ActionSubparsers</a></p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#sub-commands">subcommands</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.error" data-title="ArgumentParser#error (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.error" class="" title="ArgumentParser#error (instance method)" data-id="argumentparser#error">error</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>error</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L1140">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#error(message)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">err</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">Error</li>
+                    <li class="argument-type">string</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>message</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Error method Prints a usage message incorporating the message to stderr and exits. If you override this in a subclass, it should not return -- it should either exit or throw an exception.</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.exit" data-title="ArgumentParser#exit (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.exit" class="" title="ArgumentParser#exit (instance method)" data-id="argumentparser#exit">exit</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>exit</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L1118">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#exit(status = 0, message)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">status</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">int</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>exit status</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">message</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>message</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Print message in stderr/stdout and exit program</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.parseArgs" data-title="ArgumentParser#parseArgs (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.parseArgs" class="" title="ArgumentParser#parseArgs (instance method)" data-id="argumentparser#parseargs">parseArgs</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>parseArgs</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L232">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#parseArgs(args, namespace)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li><a href="#Namespace" class="link-short" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+                    <li>Object</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">args</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>input elements</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">namespace</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">Namespace</li>
+                    <li class="argument-type">Object</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>result object</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Parsed args and throws error if some arguments are not recognized</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#the-parse-args-method">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.parseKnownArgs" data-title="ArgumentParser#parseKnownArgs (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.parseKnownArgs" class="" title="ArgumentParser#parseKnownArgs (instance method)" data-id="argumentparser#parseknownargs">parseKnownArgs</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>parseKnownArgs</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L258">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#parseKnownArgs(args, namespace)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>array</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">args</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>input options</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">namespace</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">Namespace</li>
+                    <li class="argument-type">Object</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>result object</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Parse known arguments and return tuple of result object and unknown args</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#partial-parsing">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.printHelp" data-title="ArgumentParser#printHelp (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.printHelp" class="" title="ArgumentParser#printHelp (instance method)" data-id="argumentparser#printhelp">printHelp</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>printHelp</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L1094">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#printHelp()</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Print help</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#printing-help">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.printUsage" data-title="ArgumentParser#printUsage (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.printUsage" class="" title="ArgumentParser#printUsage (instance method)" data-id="argumentparser#printusage">printUsage</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">ArgumentParser#</span>printUsage</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L1081">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#printUsage()</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Print usage</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#printing-help">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.formatHelp" data-title="ArgumentParser#formatHelp (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.formatHelp" class="" title="ArgumentParser#formatHelp (instance property)" data-id="argumentparser#formathelp">formatHelp</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">ArgumentParser#</span>formatHelp</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L1038">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#formatHelp</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>string</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Return help</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#printing-help">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="ArgumentParser.prototype.formatUsage" data-title="ArgumentParser#formatUsage (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#ArgumentParser" class="" title="ArgumentParser (class)" data-id="argumentparser">ArgumentParser</a></li>
+          <li><a href="#ArgumentParser.prototype.formatUsage" class="" title="ArgumentParser#formatUsage (instance property)" data-id="argumentparser#formatusage">formatUsage</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">ArgumentParser#</span>formatUsage</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/argument_parser.js#L1023">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">ArgumentParser#formatUsage</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>string</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Return usage string</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#printing-help">original guide</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter" data-title="HelpFormatter (class)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+        </ul>
+        <h2 title="class">HelpFormatter</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L14">View source</a></div>
+      </header>
+      <div class="section description">
+        <h3>Description</h3>
+        <div class="content">
+          <p>Formatter for generating usage messages and argument help strings. Only the name of this class is considered a public API. All the methods provided by the class are considered an implementation detail.</p>
+          <p>Do not call in your code, use this class only for inherits your own forvatter</p>
+          <p>ToDo add <a href="http://docs.python.org/dev/library/argparse.html#formatter-class">additonal formatters</a></p>
+        </div>
+      </div>
+      <div class="section constructor">
+        <h3>Constructor</h3>
+        <div class="content"></div>
+        <ul class="method-list">
+          <li><a href="#HelpFormatter.new" class="" title="new HelpFormatter (constructor)" data-id="new helpformatter">new HelpFormatter</a></li>
+        </ul>
+      </div>
+      <div class="section instance_methods">
+        <h3>Instance methods</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#HelpFormatter.prototype.addArgument" class="" title="HelpFormatter#addArgument (instance method)" data-id="helpformatter#addargument">addArgument</a></li>
+            <li><a href="#HelpFormatter.prototype.addArguments" class="" title="HelpFormatter#addArguments (instance method)" data-id="helpformatter#addarguments">addArguments</a></li>
+            <li><a href="#HelpFormatter.prototype.addText" class="" title="HelpFormatter#addText (instance method)" data-id="helpformatter#addtext">addText</a></li>
+            <li><a href="#HelpFormatter.prototype.addUsage" class="" title="HelpFormatter#addUsage (instance method)" data-id="helpformatter#addusage">addUsage</a></li>
+            <li><a href="#HelpFormatter.prototype.startSection" class="" title="HelpFormatter#startSection (instance method)" data-id="helpformatter#startsection">startSection</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section instance_properties">
+        <h3>Instance properties</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#HelpFormatter.prototype.endSection" class="" title="HelpFormatter#endSection (instance property)" data-id="helpformatter#endsection">endSection</a></li>
+            <li><a href="#HelpFormatter.prototype.formatHelp" class="" title="HelpFormatter#formatHelp (instance property)" data-id="helpformatter#formathelp">formatHelp</a></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.new" data-title="new HelpFormatter (constructor)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.new" class="" title="new HelpFormatter (constructor)" data-id="new helpformatter">new</a></li>
+        </ul>
+        <h2 title="constructor"><span class="name_prefix">HelpFormatter.</span>new</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L101">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">new HelpFormatter(options)</li>
+              </ul>
+            </li>
+          </ul>
+          <h4>Options:</h4>
+          <ul>
+            <li><code>prog</code>: program name</li>
+            <li><code>indentIncriment</code>: indent step, default value 2</li>
+            <li><code>maxHelpPosition</code>: max help position, default value = 24</li>
+            <li><code>width</code>: line width</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.addArgument" data-title="HelpFormatter#addArgument (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.addArgument" class="" title="HelpFormatter#addArgument (instance method)" data-id="helpformatter#addargument">addArgument</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">HelpFormatter#</span>addArgument</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L232">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#addArgument(action)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">action</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">object</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>action</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Add argument into current section</p>
+          <p>Single variant of <a href="#HelpFormatter.prototype.addArguments" class="link-short" title="HelpFormatter#addArguments (instance method)" data-id="helpformatter#addarguments">HelpFormatter#addArguments</a></p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.addArguments" data-title="HelpFormatter#addArguments (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.addArguments" class="" title="HelpFormatter#addArguments (instance method)" data-id="helpformatter#addarguments">addArguments</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">HelpFormatter#</span>addArguments</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L277">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#addArguments(actions)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">actions</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>actions list</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Mass add arguments into current section</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> formatter.startSection(actionGroup.title);
+ formatter.addText(actionGroup.description);
+ formatter.addArguments(actionGroup._groupActions);
+ formatter.endSection();
+</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.addText" data-title="HelpFormatter#addText (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.addText" class="" title="HelpFormatter#addText (instance method)" data-id="helpformatter#addtext">addText</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">HelpFormatter#</span>addText</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L197">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#addText(text)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">text</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>plain text</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Add plain text into current section</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> formatter.startSection(actionGroup.title);
+ formatter.addText(actionGroup.description);
+ formatter.addArguments(actionGroup._groupActions);
+ formatter.endSection();
+</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.addUsage" data-title="HelpFormatter#addUsage (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.addUsage" class="" title="HelpFormatter#addUsage (instance method)" data-id="helpformatter#addusage">addUsage</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">HelpFormatter#</span>addUsage</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L218">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#addUsage(usage, actions, groups, prefix)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">usage</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>usage text</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">actions</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>actions list</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">groups</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">array</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>groups list</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">prefix</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>usage prefix</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Add usage data into current section</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> formatter.addUsage(this.usage, this._actions, []);
+ return formatter.formatHelp();
+</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.startSection" data-title="HelpFormatter#startSection (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.startSection" class="" title="HelpFormatter#startSection (instance method)" data-id="helpformatter#startsection">startSection</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">HelpFormatter#</span>startSection</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L158">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#startSection(heading)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">heading</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>header string</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Start new help section</p>
+          <p>See alse [code example][1]</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> formatter.startSection(actionGroup.title);
+ formatter.addText(actionGroup.description);
+ formatter.addArguments(actionGroup._groupActions);
+ formatter.endSection();
+</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.endSection" data-title="HelpFormatter#endSection (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.endSection" class="" title="HelpFormatter#endSection (instance property)" data-id="helpformatter#endsection">endSection</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">HelpFormatter#</span>endSection</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L178">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#endSection</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Void</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>End help section</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> formatter.startSection(actionGroup.title);
+ formatter.addText(actionGroup.description);
+ formatter.addArguments(actionGroup._groupActions);
+ formatter.endSection();</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="HelpFormatter.prototype.formatHelp" data-title="HelpFormatter#formatHelp (instance property)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#HelpFormatter" class="" title="HelpFormatter (class)" data-id="helpformatter">HelpFormatter</a></li>
+          <li><a href="#HelpFormatter.prototype.formatHelp" class="" title="HelpFormatter#formatHelp (instance property)" data-id="helpformatter#formathelp">formatHelp</a></li>
+        </ul>
+        <h2 title="instance property"><span class="name_prefix">HelpFormatter#</span>formatHelp</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/help/formatter.js#L299">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">HelpFormatter#formatHelp</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>string</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Format help</p>
+          <h5>Example</h5>
+          <pre class="hljs"><code> formatter.addText(this.epilog);
+ return formatter.formatHelp();
+</code></pre>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Namespace" data-title="Namespace (class)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Namespace" class="" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+        </ul>
+        <h2 title="class">Namespace</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/namespace.js#L11">View source</a></div>
+      </header>
+      <div class="section description">
+        <h3>Description</h3>
+        <div class="content">
+          <p>Simple object for storing attributes. Implements equality by attribute names and values, and provides a simple string representation.</p>
+          <p>See also <a href="http://docs.python.org/dev/library/argparse.html#the-namespace-object">original guide</a></p>
+        </div>
+      </div>
+      <div class="section constructor">
+        <h3>Constructor</h3>
+        <div class="content"></div>
+        <ul class="method-list">
+          <li><a href="#Namespace.new" class="" title="new Namespace (constructor)" data-id="new namespace">new Namespace</a></li>
+        </ul>
+      </div>
+      <div class="section instance_methods">
+        <h3>Instance methods</h3>
+        <div class="content">
+          <ul class="method-list">
+            <li><a href="#Namespace.prototype.get" class="" title="Namespace#get (instance method)" data-id="namespace#get">get</a></li>
+            <li><a href="#Namespace.prototype.isset" class="" title="Namespace#isset (instance method)" data-id="namespace#isset">isset</a></li>
+            <li><a href="#Namespace.prototype.set" class="" title="Namespace#set (instance method)" data-id="namespace#set">set</a></li>
+            <li><a href="#Namespace.prototype.unset" class="" title="Namespace#unset (instance method)" data-id="namespace#unset">unset</a></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Namespace.new" data-title="new Namespace (constructor)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Namespace" class="" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+          <li><a href="#Namespace.new" class="" title="new Namespace (constructor)" data-id="new namespace">new</a></li>
+        </ul>
+        <h2 title="constructor"><span class="name_prefix">Namespace.</span>new</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/namespace.js#L20">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">new Namespace(options)</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">options</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">object</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>predefined propertis for result object</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Namespace.prototype.get" data-title="Namespace#get (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Namespace" class="" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+          <li><a href="#Namespace.prototype.get" class="" title="Namespace#get (instance method)" data-id="namespace#get">get</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">Namespace#</span>get</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/namespace.js#L58">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Namespace#get(key, defaultValue)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>mixed</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">key</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                    <li class="argument-type">number</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>property name</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">defaultValue</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">mixed</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>default value</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Return the property key or defaulValue if not set</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Namespace.prototype.isset" data-title="Namespace#isset (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Namespace" class="" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+          <li><a href="#Namespace.prototype.isset" class="" title="Namespace#isset (instance method)" data-id="namespace#isset">isset</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">Namespace#</span>isset</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/namespace.js#L30">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Namespace#isset(key)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>Boolean</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">key</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                    <li class="argument-type">number</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>property name</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Tells whenever <code>namespace</code> contains given <code>key</code> or not.</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Namespace.prototype.set" data-title="Namespace#set (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Namespace" class="" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+          <li><a href="#Namespace.prototype.set" class="" title="Namespace#set (instance method)" data-id="namespace#set">set</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">Namespace#</span>set</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/namespace.js#L42">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Namespace#set(key, value)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>self</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">key</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                    <li class="argument-type">number</li>
+                    <li class="argument-type">object</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>propery name</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">value</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">mixed</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>new property value</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Set the property named key with value. If key object then set all key properties to namespace object</p>
+        </div>
+      </div>
+    </article>
+    <article class="docblock" id="Namespace.prototype.unset" data-title="Namespace#unset (instance method)">
+      <header>
+        <ul class="breadcrumbs">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Namespace" class="" title="Namespace (class)" data-id="namespace">Namespace</a></li>
+          <li><a href="#Namespace.prototype.unset" class="" title="Namespace#unset (instance method)" data-id="namespace#unset">unset</a></li>
+        </ul>
+        <h2 title="instance method"><span class="name_prefix">Namespace#</span>unset</h2>
+        <div class="source"><a href="https://github.com/nodeca/argparse/blob/66012a/lib/namespace.js#L69">View source</a></div>
+      </header>
+      <div class="section method">
+        <div class="content">
+          <ul class="signatures">
+            <li>
+              <ul class="signature">
+                <li class="signature-call">Namespace#unset(key, defaultValue)</li>
+                <li>
+                  <ul class="signature-values">
+                    <li>mixed</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="arguments">
+            <li>
+              <ul class="argument">
+                <li class="argument-name">key</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">string</li>
+                    <li class="argument-type">number</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>property name</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="argument">
+                <li class="argument-name">defaultValue</li>
+                <li>
+                  <ul class="argument-types">
+                    <li class="argument-type">mixed</li>
+                  </ul>
+                </li>
+                <li class="argument-description">
+                  <p>default value</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Return data[key](and delete it) or defaultValue</p>
+        </div>
+      </div>
+    </article>
+    <footer class="footer">
+      <p>Last updated on Mon, 31 Dec 2018 08:41:58 GMT. Generated by <a href="http://github.com/nodeca/ndoc">ndoc</a></p>
+    </footer>
+  </div>
+</body>
+
+</html>

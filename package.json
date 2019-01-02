@@ -1,0 +1,35 @@
+{
+  "name": "argparse",
+  "description": "Modified ver of argparse@1.0.10 - test on windows",
+  "version": "0.0.1",
+  "keywords": [
+    "cli",
+    "parser",
+    "argparse",
+    "option",
+    "args"
+  ],
+  "contributors": [
+    "Eugene Shkuropat",
+    "Paul Jacobson"
+  ],
+  "files": [
+    "index.js",
+    "lib/"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bill1812/argparse.git"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "sprintf-js": "~1.1.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "ndoc": "^5.0.1"
+  }
+}
