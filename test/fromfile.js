@@ -68,7 +68,7 @@ describe('from file', function () {
     args = parser.parseArgs([ 'X', '@recursive', 'Z', '-a', 'B' ]);
     assert.deepEqual(args, { a: 'B', x: 'X', y: [ 'hello world!', 'Z' ] });
   });
-  */
+  /*
   it('test 5.0 original recursive reading arguments from files', function () {
     args.a = undefined;
     args.x = undefined;
@@ -82,7 +82,8 @@ describe('from file', function () {
     console.log('    5.0 after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: 'A', x: 'hello world!', y: ['Y', 'Z'] });
   });
-  /*it(' test 5.1 recursive reading arguments from files(result shifted)', function () {
+  */
+  it(' test 5.1 recursive reading arguments from files(result shifted)', function () {
     args.a = undefined;
     args.x = undefined;
     args.y = undefined;
@@ -94,7 +95,8 @@ describe('from file', function () {
     console.log('    5.1 after args.x: ' + args.x);
     console.log('    5.1 after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: '\r', x: 'A\r', y: ['hello world!', 'Y', 'Z'] });
-  });*/
+  });
+  /*
   it('test 6.0 original recursive reading arguments from files', function () {
     args.a = undefined;
     args.x = undefined;
@@ -108,7 +110,8 @@ describe('from file', function () {
     console.log('    6.0 after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: 'B', x: 'X', y: ['hello world!', 'Z'] });
   });
-  /*it(' test 6.1 recursive reading arguments from files(result shifted)', function () {
+  */
+  it(' test 6.1 recursive reading arguments from files(result shifted)', function () {
     args.a = undefined;
     args.x = undefined;
     args.y = undefined;
@@ -120,7 +123,8 @@ describe('from file', function () {
     console.log('    6.1 after args.x: ' + args.x);
     console.log('    6.1 after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: 'B', x: 'X', y: ['A\r', 'hello world!', 'Z'] });
-  });*/
+  });
+
   it('test 7. reading arguments from an invalid file', function () {
     console.log('    7. before args.a: ' + args.a);
     console.log('    7. before args.x: ' + args.x);
