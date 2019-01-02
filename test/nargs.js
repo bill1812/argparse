@@ -11,7 +11,7 @@ var $$ = require('../lib/const');
 describe('nargs', function () {
   var parser;
   var args;
-  it('test specifying the 1 arg for an Optional', function () {
+  it('01. test specifying the 1 arg for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { nargs: 1 });
 
@@ -28,7 +28,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test specifying the 3 args for an Optional', function () {
+  it('02. test specifying the 3 args for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { nargs: 3 });
 
@@ -57,7 +57,7 @@ describe('nargs', function () {
     });
   });
 
-  it('tests not specifying the number of args for an Optional', function () {
+  it('03. tests not specifying the number of args for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], {});
 
@@ -74,7 +74,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test specifying an args for an Optional, that accepts one or more', function () {
+  it('04. test specifying an args for an Optional, that accepts one or more', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { nargs: '+' });
     parser.addArgument(['-y'], { default: 'spam', nargs: '+', defaultValue: 'spam' });
@@ -107,7 +107,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test specifying an Optional arg for an Optional', function () {
+  it('05. test specifying an Optional arg for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-w'], { nargs: '?' });
     parser.addArgument(['-x'], { const: 42, nargs: '?', constant: 42 });
@@ -145,7 +145,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test specifying an args for an Optional that accepts zero or more', function () {
+  it('06. test specifying an args for an Optional that accepts zero or more', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { nargs: '*' });
     parser.addArgument(['-y'], { default: 'spam', nargs: '*', defaultValue: 'spam' });
@@ -170,7 +170,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional that specifies an nargs of 1', function () {
+  it('07. test a Positional that specifies an nargs of 1', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: 1 });
 
@@ -188,7 +188,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional that specifies an nargs of 2', function () {
+  it('08. test a Positional that specifies an nargs of 2', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: 2 });
 
@@ -209,7 +209,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with 2 nargs followed by one with none', function () {
+  it('09. test a Positional with 2 nargs followed by one with none', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: 2 });
     parser.addArgument(['bar'], {});
@@ -234,7 +234,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with 2 nargs followed by one with one or more', function () {
+  it('10. test a Positional with 2 nargs followed by one with one or more', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: 2 });
     parser.addArgument(['bar'], { nargs: '+' });
@@ -256,7 +256,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with 2 nargs followed by one optional', function () {
+  it('11. test a Positional with 2 nargs followed by one optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: 2 });
     parser.addArgument(['bar'], { nargs: '?' });
@@ -280,7 +280,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with 2 nargs followed by one with unlimited', function () {
+  it('12. test a Positional with 2 nargs followed by one with unlimited', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: 2 });
     parser.addArgument(['bar'], { nargs: '*' });
@@ -301,7 +301,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional that doesn\'t specify nargs', function () {
+  it('13. test a Positional that doesn\'t specify nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
 
@@ -319,7 +319,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with no nargs followed by one with 1', function () {
+  it('14. test a Positional with no nargs followed by one with 1', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { nargs: 1 });
@@ -341,7 +341,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test two Positionals that don\'t specify nargs', function () {
+  it('15. test two Positionals that don\'t specify nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], {});
@@ -363,7 +363,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with no nargs followed by one with one or more', function () {
+  it('16. test a Positional with no nargs followed by one with one or more', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { nargs: '+' });
@@ -384,7 +384,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test three Positionals: no nargs, one or more nargs and 1 nargs', function () {
+  it('17. test three Positionals: no nargs, one or more nargs and 1 nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { nargs: '+' });
@@ -409,7 +409,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with no nargs followed by one with an Optional', function () {
+  it('18. test a Positional with no nargs followed by one with an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { nargs: '?' });
@@ -430,7 +430,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test three Positionals: no nargs, optional narg and 1 nargs', function () {
+  it('19. test three Positionals: no nargs, optional narg and 1 nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { default: 0.625, nargs: '?', defaultValue: 0.625 });
@@ -452,7 +452,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with no nargs followed by one with unlimited', function () {
+  it('20. test a Positional with no nargs followed by one with unlimited', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { nargs: '*' });
@@ -472,7 +472,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test three Positionals: no nargs, unlimited nargs and 1 nargs', function () {
+  it('21. test three Positionals: no nargs, unlimited nargs and 1 nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], {});
     parser.addArgument(['bar'], { nargs: '*' });
@@ -494,7 +494,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional that specifies one or more nargs', function () {
+  it('22. test a Positional that specifies one or more nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '+' });
 
@@ -511,7 +511,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with one or more nargs followed by one with 1', function () {
+  it('23. test a Positional with one or more nargs followed by one with 1', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '+' });
     parser.addArgument(['bar'], { nargs: 1 });
@@ -532,7 +532,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with one or more nargs followed by one with none', function () {
+  it('24. test a Positional with one or more nargs followed by one with none', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '+' });
     parser.addArgument(['bar'], {});
@@ -553,7 +553,7 @@ describe('nargs', function () {
     });
   });
 
-  it('tests an Optional Positional', function () {
+  it('25. tests an Optional Positional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '?' });
 
@@ -570,7 +570,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with an Optional nargs followed by one with 1', function () {
+  it('26. test a Positional with an Optional nargs followed by one with 1', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '?' });
     parser.addArgument(['bar'], { nargs: 1 });
@@ -592,7 +592,7 @@ describe('nargs', function () {
   });
 
   /*eslint-disable max-len*/
-  it('test an Optional Positional with a default value (that needs to be converted to the appropriate type.)', function () {
+  it('27. test an Optional Positional with a default value\n          (that needs to be converted to the appropriate type.)', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { default: '42', type: 'int', nargs: '?', defaultValue: '42' });
 
@@ -612,7 +612,7 @@ describe('nargs', function () {
     });
   });
 
-  it('tests an Optional Positional with a default value', function () {
+  it('28. tests an Optional Positional with a default value', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { default: 42, nargs: '?', defaultValue: 42 });
 
@@ -629,7 +629,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with an Optional nargs followed by one with none', function () {
+  it('29. test a Positional with an Optional nargs followed by one with none', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { default: 42, nargs: '?', defaultValue: 42 });
     parser.addArgument(['bar'], {});
@@ -650,7 +650,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test an Optional narg followed by one or more nargs', function () {
+  it('30. test an Optional narg followed by one or more nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '?' });
     parser.addArgument(['bar'], { nargs: '+' });
@@ -670,7 +670,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test two optional nargs', function () {
+  it('31. test two optional nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '?' });
     parser.addArgument(['bar'], { default: 42, nargs: '?', defaultValue: 42 });
@@ -690,7 +690,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test an Optional narg followed by unlimited nargs', function () {
+  it('32. test an Optional narg followed by unlimited nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '?' });
     parser.addArgument(['bar'], { nargs: '*' });
@@ -709,7 +709,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional that specifies unlimited nargs', function () {
+  it('33. test a Positional that specifies unlimited nargs', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '*' });
 
@@ -726,7 +726,7 @@ describe('nargs', function () {
   });
 
   // Added after bug in ndoc
-  it('test a `nargs` + `append` combination. Not obvious result - nested array', function () {
+  it('34. test a `nargs` + `append` combination. Not obvious result - nested array', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { action: 'append', nargs: '+' });
 
@@ -735,7 +735,7 @@ describe('nargs', function () {
     assert.deepEqual(args, { foo: [['a', 'b']] });
   });
 
-  it('test a Positional with unlimited nargs followed by one with 1', function () {
+  it('35. test a Positional with unlimited nargs followed by one with 1', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '*' });
     parser.addArgument(['bar'], { nargs: 1 });
@@ -755,7 +755,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional that specifies unlimited nargs and a default', function () {
+  it('36. test a Positional that specifies unlimited nargs and a default', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { default: 'bar', nargs: '*', defaultValue: 'bar' });
 
@@ -771,7 +771,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test a Positional with unlimited nargs followed by one with none', function () {
+  it('37. test a Positional with unlimited nargs followed by one with none', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['foo'], { nargs: '*' });
     parser.addArgument(['bar'], {});
@@ -791,7 +791,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test specifying a positional with nargs=REMAINDER', function () {
+  it('38. test specifying a positional with nargs=REMAINDER', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['x'], {});
     parser.addArgument(['y'], { nargs: $$.REMAINDER });
@@ -817,7 +817,7 @@ describe('nargs', function () {
     });
   });
 
-  it('test specifying an args for an Optional that accepts zero or more', function () {
+  it('39. test specifying an args for an Optional that accepts zero or more', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { nargs: '*' });
     parser.addArgument(['y'], { nargs: '*' });
@@ -839,7 +839,7 @@ describe('nargs', function () {
 
   });
 
-  it("should accept defaultValue for nargs:'*'", function () {
+  it("40. should accept defaultValue for nargs:'*'", function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['bar'], { nargs: '*', defaultValue: 42 });
@@ -848,12 +848,60 @@ describe('nargs', function () {
     assert.equal(args.bar, 42);
   });
 
-  it('should accept negative scientific numbers as values', function () {
+  it('41. should accept negative scientific numbers as values', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['--xlim'], { nargs: 2, type: 'float' });
 
     args = parser.parseArgs(['--xlim', '-2e-3', '1e4']);
     assert.equal(args.xlim[0], -0.002);
   });
-
 });
+
+/** \argparse>mocha .\test\nargs
+
+  nargs
+    √ 01. test specifying the 1 arg for an Optional
+    √ 02. test specifying the 3 args for an Optional
+    √ 03. tests not specifying the number of args for an Optional
+    √ 04. test specifying an args for an Optional, that accepts one or more
+    √ 05. test specifying an Optional arg for an Optional
+    √ 06. test specifying an args for an Optional that accepts zero or more
+    √ 07. test a Positional that specifies an nargs of 1
+    √ 08. test a Positional that specifies an nargs of 2
+    √ 09. test a Positional with 2 nargs followed by one with none
+    √ 10. test a Positional with 2 nargs followed by one with one or more
+    √ 11. test a Positional with 2 nargs followed by one optional
+    √ 12. test a Positional with 2 nargs followed by one with unlimited
+    √ 13. test a Positional that doesn't specify nargs
+    √ 14. test a Positional with no nargs followed by one with 1
+    √ 15. test two Positionals that don't specify nargs
+    √ 16. test a Positional with no nargs followed by one with one or more
+    √ 17. test three Positionals: no nargs, one or more nargs and 1 nargs
+    √ 18. test a Positional with no nargs followed by one with an Optional
+    √ 19. test three Positionals: no nargs, optional narg and 1 nargs
+    √ 20. test a Positional with no nargs followed by one with unlimited
+    √ 21. test three Positionals: no nargs, unlimited nargs and 1 nargs
+    √ 22. test a Positional that specifies one or more nargs
+    √ 23. test a Positional with one or more nargs followed by one with 1
+    √ 24. test a Positional with one or more nargs followed by one with none
+    √ 25. tests an Optional Positional
+    √ 26. test a Positional with an Optional nargs followed by one with 1
+    √ 27. test an Optional Positional with a default value
+          (that needs to be converted to the appropriate type.)
+    √ 28. tests an Optional Positional with a default value
+    √ 29. test a Positional with an Optional nargs followed by one with none
+    √ 30. test an Optional narg followed by one or more nargs
+    √ 31. test two optional nargs
+    √ 32. test an Optional narg followed by unlimited nargs
+    √ 33. test a Positional that specifies unlimited nargs
+    √ 34. test a `nargs` + `append` combination. Not obvious result - nested array
+    √ 35. test a Positional with unlimited nargs followed by one with 1
+    √ 36. test a Positional that specifies unlimited nargs and a default
+    √ 37. test a Positional with unlimited nargs followed by one with none
+    √ 38. test specifying a positional with nargs=REMAINDER
+    √ 39. test specifying an args for an Optional that accepts zero or more
+    √ 40. should accept defaultValue for nargs:'*'
+    √ 41. should accept negative scientific numbers as values
+
+  41 passing (127ms)
+*/

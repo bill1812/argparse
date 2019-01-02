@@ -10,7 +10,7 @@ describe('base', function () {
   var parser;
   var args;
 
-  it('should parse argument in short form', function () {
+  it('01. should parse argument in short form', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
 
@@ -22,7 +22,7 @@ describe('base', function () {
     assert.equal(args.foo, 1);
   });
 
-  it('should parse argument in long form', function () {
+  it('02. should parse argument in long form', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
 
@@ -32,7 +32,7 @@ describe('base', function () {
     assert.equal(args.foo, 1);
   });
 
-  it('should parse multiple arguments', function () {
+  it('03. should parse multiple arguments', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['--bar']);
@@ -42,7 +42,7 @@ describe('base', function () {
     assert.equal(args.bar, 6);
   });
 
-  it('should check argument type', function () {
+  it('04. should check argument type', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['--bar'], { type: 'int' });
@@ -55,25 +55,25 @@ describe('base', function () {
     });
   });
 
-  it('should not drop down with empty args (without positional arguments)', function () {
+  it('05. should not drop down with empty args (without positional arguments)', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
 
     assert.doesNotThrow(function () { parser.parseArgs([]); });
   });
 
-  it('should drop down with empty args (positional arguments)', function () {
+  it('06. should drop down with empty args (positional arguments)', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['baz']);
 
     assert.throws(
-      function ()  { parser.parseArgs([]); },
+      function () { parser.parseArgs([]); },
       /too few arguments/
     );
   });
 
-  it('should support pseudo-argument', function () {
+  it('07. should support pseudo-argument', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['bar'], { nargs: '+' });
@@ -83,7 +83,7 @@ describe('base', function () {
     assert.equal(args.bar.length, 2);
   });
 
-  it('should support #setDefaults', function () {
+  it('08. should support #setDefaults', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.setDefaults({ bar: 1 });
@@ -92,7 +92,7 @@ describe('base', function () {
     assert.equal(args.bar, 1);
   });
 
-  it('should throw TypeError with conflicting options', function () {
+  it('09. should throw TypeError with conflicting options', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
 
@@ -114,7 +114,7 @@ describe('base', function () {
     );
   });
 
-  it('should parse negative arguments', function () {
+  it('10. should parse negative arguments', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['bar'], { type: 'int' });
@@ -123,7 +123,7 @@ describe('base', function () {
     assert.equal(args.bar, -1);
   });
 
-  it("should parse arguments with '='", function () {
+  it("11. should parse arguments with '='", function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['bar']);
@@ -133,7 +133,7 @@ describe('base', function () {
     assert.equal(args.bar, '"bar=nice=path"');
   });
 
-  it('No negative number options; neg number is positional argument', function () {
+  it('12. No negative number options; neg number is positional argument', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { dest: 'x' });
     parser.addArgument(['foo'], { nargs: '?' });
@@ -149,7 +149,7 @@ describe('base', function () {
     assert.equal(args.foo, '-5');
   });
 
-  it('negative number options present, so any neg number is an option', function () {
+  it('13. negative number options present, so any neg number is an option', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-1'], { dest: 'one' });
     parser.addArgument(['foo'], { nargs: '?' });
@@ -177,7 +177,7 @@ describe('base', function () {
     assert.equal(args.foo, '-f');
   });
 
-  it('should infer option destination from long and short options', function () {
+  it('14. should infer option destination from long and short options', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);        // from long option
     parser.addArgument(['-g']);                 // from short option
@@ -191,7 +191,7 @@ describe('base', function () {
     assert.deepEqual(args, { foo: 1, g: 2, xxx: 3 });
   });
 
-  it('should accept 0 defaultValue', function () {
+  it('15. should accept 0 defaultValue', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['bar'], { nargs: '?', defaultValue: 0 });
@@ -201,7 +201,7 @@ describe('base', function () {
     // could also test for '', and false
   });
 
-  it('getDefault() should get defaults', function () {
+  it('16. getDefault() should get defaults', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['-g', '--goo'], { defaultValue: 42 });
@@ -210,7 +210,7 @@ describe('base', function () {
     assert.equal(parser.getDefault('help'), require('../lib/const').SUPPRESS);
   });
 
-  it('should handle mixed positional and optional args', function () {
+  it('17. should handle mixed positional and optional args', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f', '--foo']);
     parser.addArgument(['x']);
@@ -225,7 +225,7 @@ describe('base', function () {
     // was giving: Error: _mocha: error: Unrecognized arguments: X.
   });
 
-  it('test empty and space containing arguments', function () {
+  it('18. test empty and space containing arguments', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['x'], { nargs: '?' });
     parser.addArgument(['-y', '--yyy'], { dest: 'y' });
@@ -252,31 +252,60 @@ describe('base', function () {
     });
   });
 
-  it('should support instantiation without new', function () {
+  it('19. should support instantiation without new', function () {
     assert.doesNotThrow(function () {
       /*eslint-disable new-cap*/
       parser = ArgumentParser({ debug: true });
     });
   });
 
-  it('should accept a string as a positional argument name', function () {
+  it('20. should accept a string as a positional argument name', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument('foo');
     args = parser.parseArgs(['badger']);
     assert.equal(args.foo, 'badger');
   });
 
-  it('should accept a string as a short option name', function () {
+  it('21. should accept a string as a short option name', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument('-f');
     args = parser.parseArgs('-f badger'.split(' '));
     assert.equal(args.f, 'badger');
   });
 
-  it('should accept a string as a long option name', function () {
+  it('22. should accept a string as a long option name', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument('--foo');
     args = parser.parseArgs('--foo badger'.split(' '));
     assert.equal(args.foo, 'badger');
   });
 });
+
+/** \argparse>mocha .\test\base.js
+
+  base
+    √ 01. should parse argument in short form
+    √ 02. should parse argument in long form
+    √ 03. should parse multiple arguments
+    √ 04. should check argument type
+    √ 05. should not drop down with empty args (without positional arguments)
+    √ 06. should drop down with empty args (positional arguments)
+    √ 07. should support pseudo-argument
+    √ 08. should support #setDefaults
+    √ 09. should throw TypeError with conflicting options
+    √ 10. should parse negative arguments
+    √ 11. should parse arguments with '='
+    √ 12. No negative number options; neg number is positional argument
+    √ 13. negative number options present, so any neg number is an option
+    √ 14. should infer option destination from long and short options
+    √ 15. should accept 0 defaultValue
+    √ 16. getDefault() should get defaults
+    √ 17. should handle mixed positional and optional args
+    √ 18. test empty and space containing arguments
+    √ 19. should support instantiation without new
+    √ 20. should accept a string as a positional argument name
+    √ 21. should accept a string as a short option name
+    √ 22. should accept a string as a long option name
+
+  22 passing (133ms)
+*/

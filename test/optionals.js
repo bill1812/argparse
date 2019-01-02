@@ -10,7 +10,7 @@ describe('optionals', function () {
   var parser;
   var args;
 
-  it('test options that may or may not be arguments', function () {
+  it('01. test options that may or may not be arguments', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { type: 'float' });
     parser.addArgument(['-3'], { dest: 'y', type: 'float' });
@@ -80,7 +80,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the append action for an Optional', function () {
+  it('02. test the append action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['--baz'], { action: 'append' });
 
@@ -105,7 +105,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the append_const action for an Optional', function () {
+  it('03. test the append_const action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-b'], { action: 'appendConst',
       const: 'Exception',
@@ -136,7 +136,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the append_const action for an Optional', function () {
+  it('04. test the append_const action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-b'], { default: ['X'],
       action: 'appendConst',
@@ -169,7 +169,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the append action for an Optional', function () {
+  it('05. test the append action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(
       ['--baz'],
@@ -197,7 +197,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the count action for an Optional', function () {
+  it('06. test the count action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { action: 'count' });
 
@@ -220,7 +220,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the store action for an Optional', function () {
+  it('07. test the store action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { action: 'store' });
 
@@ -237,7 +237,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the store_const action for an Optional', function () {
+  it('08. test the store_const action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(
       ['-y'],
@@ -254,7 +254,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the store_false action for an Optional', function () {
+  it('09. test the store_false action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-z'], { action: 'storeFalse' });
 
@@ -274,7 +274,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test the store_true action for an Optional', function () {
+  it('10. test the store_true action for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['--apple'], { action: 'storeTrue' });
 
@@ -294,7 +294,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test negative number args when almost numeric options are present', function () {
+  it('11. test negative number args when almost numeric options are present', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['x'], { nargs: '?' });
     parser.addArgument(['-k4'], { action: 'storeTrue', dest: 'y' });
@@ -315,7 +315,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test specifying the choices for an Optional', function () {
+  it('12. test specifying the choices for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f'], { choices: 'abc' });
     parser.addArgument(['-g'], { type: 'int', choices: [0, 1, 2, 3, 4] });
@@ -350,7 +350,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test specifying a default for an Optional', function () {
+  it('13. test specifying a default for an Optional', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], {});
     parser.addArgument(['-y'], { default: 42, defaultValue: 42 });
@@ -367,7 +367,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test various means of setting destination', function () {
+  it('14. test various means of setting destination', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['--foo-bar'], {});
     parser.addArgument(['--baz'], { dest: 'zabbaz' });
@@ -386,7 +386,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test an Optional with a double-dash option string', function () {
+  it('15. test an Optional with a double-dash option string', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['--foo'], {});
 
@@ -421,7 +421,7 @@ describe('optionals', function () {
     });
   });
 
-  it('tests partial matching with a double-dash option string', function () {
+  it('16. tests partial matching with a double-dash option string', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['--badger'], { action: 'storeTrue' });
     parser.addArgument(['--bat'], {});
@@ -459,7 +459,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test an Optional with a short opt string', function () {
+  it('17. test an Optional with a short opt string', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-1'], { dest: 'one' });
 
@@ -492,7 +492,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test negative number args when numeric options are present', function () {
+  it('18. test negative number args when numeric options are present', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['x'], { nargs: '?' });
     parser.addArgument(['-4'], { action: 'storeTrue', dest: 'y' });
@@ -514,7 +514,7 @@ describe('optionals', function () {
     });
   });
 
-  it('tests the an optional action that is required', function () {
+  it('19. tests the an optional action that is required', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { required: true, type: 'int' });
 
@@ -531,7 +531,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test a combination of single- and double-dash option strings', function () {
+  it('20. test a combination of single- and double-dash option strings', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-v', '--verbose', '-n', '--noisy'], { action: 'storeTrue' });
 
@@ -560,7 +560,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test an Optional with a single-dash option string', function () {
+  it('21. test an Optional with a single-dash option string', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], {});
 
@@ -592,7 +592,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test Optionals that partially match but are not subsets', function () {
+  it('22. test Optionals that partially match but are not subsets', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-foobar'], {});
     parser.addArgument(['-foorab'], {});
@@ -635,7 +635,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test an Optional with a single-dash option string', function () {
+  it('23. test an Optional with a single-dash option string', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-x'], { action: 'storeTrue' });
     parser.addArgument(['-yyy'], { action: 'storeConst', const: 42, constant: 42 });
@@ -701,7 +701,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test an Optional with a multi-character single-dash option string', function () {
+  it('24. test an Optional with a multi-character single-dash option string', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-foo'], {});
 
@@ -736,7 +736,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test Optionals where option strings are subsets of each other', function () {
+  it('25. test Optionals where option strings are subsets of each other', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f'], {});
     parser.addArgument(['-foobar'], {});
@@ -780,7 +780,7 @@ describe('optionals', function () {
     });
   });
 
-  it('test an Optional with single- and double-dash option strings', function () {
+  it('26. test an Optional with single- and double-dash option strings', function () {
     parser = new ArgumentParser({ debug: true });
     parser.addArgument(['-f'], { action: 'storeTrue' });
     parser.addArgument(['--bar'], {});
@@ -818,5 +818,37 @@ describe('optionals', function () {
       args = parser.parseArgs(['B']);
     });
   });
-
 });
+
+/** \argparse>mocha .\test\optionals
+
+  optionals
+    √ 01. test options that may or may not be arguments
+    √ 02. test the append action for an Optional
+    √ 03. test the append_const action for an Optional
+    √ 04. test the append_const action for an Optional
+    √ 05. test the append action for an Optional
+    √ 06. test the count action for an Optional
+    √ 07. test the store action for an Optional
+    √ 08. test the store_const action for an Optional
+    √ 09. test the store_false action for an Optional
+    √ 10. test the store_true action for an Optional
+    √ 11. test negative number args when almost numeric options are present
+    √ 12. test specifying the choices for an Optional
+    √ 13. test specifying a default for an Optional
+    √ 14. test various means of setting destination
+    √ 15. test an Optional with a double-dash option string
+    √ 16. tests partial matching with a double-dash option string
+    √ 17. test an Optional with a short opt string
+    √ 18. test negative number args when numeric options are present
+    √ 19. tests the an optional action that is required
+    √ 20. test a combination of single- and double-dash option strings
+    √ 21. test an Optional with a single-dash option string
+    √ 22. test Optionals that partially match but are not subsets
+    √ 23. test an Optional with a single-dash option string
+    √ 24. test an Optional with a multi-character single-dash option string
+    √ 25. test Optionals where option strings are subsets of each other
+    √ 26. test an Optional with single- and double-dash option strings
+
+  26 passing (111ms)
+*/
