@@ -33,6 +33,7 @@ describe('from file', function () {
   after(function () {
     process.chdir(orig_cwd);
   });
+
   it('test 1. reading arguments from a file', function () {
     args = parser.parseArgs(['X', 'Y']);
     console.log('    1. after args.a: ' + args.a);
@@ -61,7 +62,8 @@ describe('from file', function () {
     console.log('    4. after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: null, x: 'X', y: ['hello world!'] });
   });
-  /*
+
+  /* original test
   it('test recursive reading arguments from files', function () {
     args = parser.parseArgs([ '-a', 'B', '@recursive', 'Y', 'Z' ]);
     assert.deepEqual(args, { a: 'A', x: 'hello world!', y: [ 'Y', 'Z' ] });
@@ -84,12 +86,14 @@ describe('from file', function () {
   });
   */
   it(' test 5.1 recursive reading arguments from files(result shifted)', function () {
+
     args.a = undefined;
     args.x = undefined;
     args.y = undefined;
     console.log('    5.1 before args.a: ' + args.a);
     console.log('    5.1 before args.x: ' + args.x);
     console.log('    5.1 before args.y: ' + args.y + '\n');
+
     args = parser.parseArgs(['-a', 'B', '@recursive', 'Y', 'Z']);
     console.log('    5.1 after args.a: ' + args.a);
     console.log('    5.1 after args.x: ' + args.x);
@@ -111,6 +115,7 @@ describe('from file', function () {
     assert.deepEqual(args, { a: 'B', x: 'X', y: ['hello world!', 'Z'] });
   });
   */
+
   it(' test 6.1 recursive reading arguments from files(result shifted)', function () {
     args.a = undefined;
     args.x = undefined;
@@ -124,6 +129,7 @@ describe('from file', function () {
     console.log('    6.1 after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: 'B', x: 'X', y: ['A\r', 'hello world!', 'Z'] });
   });
+  //
 
   it('test 7. reading arguments from an invalid file', function () {
     console.log('    7. before args.a: ' + args.a);
@@ -179,4 +185,5 @@ describe('from file', function () {
     console.log('    9. after args.y: ' + args.y + '\n');
     assert.deepEqual(args, { a: null, x: 'X', y: ['hello', 'world!'] });
   });
+
 });
